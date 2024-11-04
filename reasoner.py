@@ -1,6 +1,6 @@
 import subprocess
 from datetime import datetime
-from os import popen
+from os import environ, popen
 from pathlib import Path
 from sys import executable, platform
 
@@ -17,16 +17,12 @@ elif platform == "win32":
 # Test the Java version
 java_version = popen(f"{JAVA_EXE} -version").read()
 
-JAVA_MEM = 4000  # in MB Default is 2000
+JAVA_MEM = environ.get("JAVA_MEM", 2048)
 
-MAX_SUBPROCESS = (
-    4  # Maximum number of subprocesses to run concurrently
-)
-
+MAX_SUBPROCESS = int(environ.get("MAX_SUBPROCESS", 1))
 # Python executable
 
 PYTHON = executable
-
 
 from rdflib import Graph
 
