@@ -2,8 +2,12 @@
 from sys import argv
 
 import owlready2
+import owlready2.reasoning
 
 JAVA_EXE, JAVA_MEM, BASE_URI, OUTPUT = argv[1:]
+
+owlready2.JAVA_EXE = JAVA_EXE
+owlready2.reasoning.JAVA_MEMORY = JAVA_MEM
 
 owlready2.onto_path.append("temp")
 
