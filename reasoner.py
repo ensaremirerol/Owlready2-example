@@ -4,6 +4,10 @@ from os import environ, popen
 from pathlib import Path
 from sys import executable, platform
 
+from rdflib import Graph
+
+JAVA_EXE = None
+
 if platform == "linux" or platform == "linux2":
     # linux
     JAVA_EXE = "/usr/bin/java"
@@ -13,6 +17,9 @@ elif platform == "darwin":
 elif platform == "win32":
     # Windows
     JAVA_EXE = "java"
+
+if JAVA_EXE is None:
+    raise RuntimeError("Unsupported platform")
 
 # Test the Java version
 java_version = popen(f"{JAVA_EXE} -version").read()
@@ -24,7 +31,6 @@ MAX_SUBPROCESS = int(environ.get("MAX_SUBPROCESS", 1))
 
 PYTHON = executable
 
-from rdflib import Graph
 
 # Collect all graph files from the data directory
 
