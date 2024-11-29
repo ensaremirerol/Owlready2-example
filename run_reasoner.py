@@ -14,7 +14,9 @@ owlready2.onto_path.append("temp")
 onto = owlready2.get_ontology(BASE_URI).load()
 
 with onto:
-    owlready2.sync_reasoner_pellet()
+    owlready2.sync_reasoner_pellet(
+        infer_property_values=True,
+    )
 
 
 # Save the inferred ontology
