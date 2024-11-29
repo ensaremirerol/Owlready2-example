@@ -1,4 +1,4 @@
-name: Docker Build Image - FASTAPI
+name: Docker Build Image - HERMIT
 
 on:
   push:
