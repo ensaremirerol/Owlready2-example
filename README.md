@@ -3,7 +3,40 @@
 This example shows how to validate more than one ontology at the same time using
 the subprocess module.
 
-## How to Install
+## Environment Variables
+
+You can set the following environment variables to change the behavior of the
+script:
+
+- `JAVA_MEM` - The amount of memory allocated to the Java Virtual Machine.
+  Default is `2048`.
+
+- `MAX_SUBPROCESS` - The maximum number of subprocesses to run at the same time.
+  Default is `1`.
+
+## How to Use
+
+You can either use Docker or install the requirements manually.
+
+### Using Docker
+
+Firstly, put the ontologies you want to validate in a folder.
+
+You can use following command to pull and run the Docker image:
+
+```bash
+docker run -it --rm -v /path/to/datafolder:/app/data -v /path/to/resultfolder:/app/results -v ghcr.io/ensaremirerol/owlready2-example:latest
+```
+
+On Docker you can set the environment variables using the `-e` flag.
+
+You can see an example valid command below:
+
+```bash
+docker run -it --rm -v $(pwd)/data:/app/data -v $(pwd)/results:/app/results -e JAVA_MEM=4096 -e MAX_SUBPROCESS=2 ghcr.io/ensaremirerol/owlready2-example:latest
+```
+
+### Manual Installation
 
 1. Optional: Create a virtual environment and activate it.
 
@@ -27,7 +60,7 @@ the subprocess module.
    pip install -r requirements.txt
    ```
 
-## How to Run
+#### How to Run
 
 First place the ontologies you want to validate in the `data` folder.
 
