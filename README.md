@@ -1,6 +1,6 @@
 # Owlready2 Parallel ontology reasoning
 
-This example shows how to validate more than one ontology at the same time using
+This example shows how to reason more than one ontology at the same time using
 the subprocess module.
 
 ## Environment Variables
@@ -20,7 +20,7 @@ You can either use Docker or install the requirements manually.
 
 ### Using Docker
 
-Firstly, put the ontologies you want to validate in a folder.
+Firstly, put the ontologies you want to reason in a folder.
 
 You can use following command to pull and run the Docker image:
 
